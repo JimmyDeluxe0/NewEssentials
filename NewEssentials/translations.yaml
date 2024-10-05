@@ -204,3 +204,7 @@ open:
   invalid: "Cannot open this object"
 destroy:
   invalid: "Cannot destroy this object"
+restrictions:
+  item_not_permitted: "Item not permitted: {ItemName}."
+  vehicle_not_permitted: "Vehicle not permitted: {VehicleName}."
+  pickup_warning: "You are not permitted to have this item."

@@ -43,7 +43,7 @@ namespace NewEssentials.Commands
             await UniTask.SwitchToMainThread();
             await user.Player.Player.TeleportToLocationAsync(callingPlayer.Player.Transform.Position.ToUnityVector());
 
-            await user.PrintMessageAsync(m_StringLocalizer["tphere:successful_tp", new {Player = user.DisplayName}]);
+            await callingPlayer.PrintMessageAsync(m_StringLocalizer["tphere:successful_tp", new {Player = user.DisplayName}]);
             await user.PrintMessageAsync(m_StringLocalizer["tphere:successful_tp_other", new {Player = user.DisplayName}]);
         }
     }
