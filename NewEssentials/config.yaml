@@ -29,3 +29,22 @@ teleportation:
 connections:
   joinMessages: true
   leaveMessages: true
+restrictions:
+  items:
+    - ids:
+      - 1441
+      - 519
+      bypassPermission: "item.bypass.default"
+    - ids:
+      - 223
+      - 224
+      bypassPermission: "item.bypass.police"
+  vehicles:
+    - ids:
+      - 140
+      - 141
+      bypassPermission: "vehicle.bypass.default"
+    - ids:
+      - 33
+      - 142
+      bypassPermission: "vehicle.bypass.police"

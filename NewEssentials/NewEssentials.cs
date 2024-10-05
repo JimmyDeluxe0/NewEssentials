@@ -68,8 +68,16 @@ namespace NewEssentials
 
             m_PermissionRegistry.RegisterPermission(this, "warps.cooldowns.exempt", "Bypass any warps-related cooldowns", PermissionGrantResult.Deny);
             m_PermissionRegistry.RegisterPermission(this, "kits.cooldowns.exempt", "Bypass any kits-related cooldowns", PermissionGrantResult.Deny);
-            
+
             m_PermissionRegistry.RegisterPermission(this, "keepskills", "Keep skills no matter the server configuration", PermissionGrantResult.Deny);
+
+            foreach (var restrict in m_Configuration.GetSection("restrictions:items").Get<List<Restriction>>())
+                if (restrict.bypassPermission != null)
+                    m_PermissionRegistry.RegisterPermission(this, restrict.bypassPermission, "Permission for bypassing restricted items");
+
+            foreach (var restrict in m_Configuration.GetSection("restrictions:vehicles").Get<List<Restriction>>())
+                if (restrict.bypassPermission != null)
+                    m_PermissionRegistry.RegisterPermission(this, restrict.bypassPermission, "Permission for bypassing restricted vehicles");
         }
 
         private async Task RegisterDataStores()
